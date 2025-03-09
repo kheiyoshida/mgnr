@@ -1,0 +1,16 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "cd ../.. && jest --selectProjects utils",
+    "test:coverage": "cd ../.. && jest --selectProjects utils --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-logger": "^1.6.1"
+  }
+}

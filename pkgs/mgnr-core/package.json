@@ -1,0 +1,28 @@
+{
+  "name": "@mgnr/core",
+  "description": "mgnr core",
+  "version": "0.0.5",
+  "main": "./dist/index.js",
+  "type": "module",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "test": "cd ../.. && jest --selectProjects mgnr-core",
+    "test:coverage": "cd ../.. && jest --selectProjects mgnr-core --coverage"
+  },
+  "keywords": [
+    "music",
+    "music-generator"
+  ],
+  "author": "Katsumi Yoshida",
+  "license": "ISC",
+  "dependencies": {
+    "utils": "workspace:^"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}

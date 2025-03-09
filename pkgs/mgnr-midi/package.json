@@ -1,0 +1,28 @@
+{
+  "name": "@mgnr/midi",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "test": "cd ../.. && jest --selectProjects mgnr-midi",
+    "test:coverage": "cd ../.. && jest --selectProjects mgnr-midi --coverage"
+  },
+  "keywords": [
+    "music",
+    "music-generator"
+  ],
+  "author": "Katsumi Yoshida",
+  "license": "ISC",
+  "dependencies": {
+    "easymidi": "^3.1.0",
+    "mgnr-core": "workspace:@mgnr/core@^",
+    "utils": "workspace:^"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
