@@ -1,7 +1,7 @@
 {
   "name": "@mgnr/tone",
   "description": "music generator for WebAudio/Tone.js/node",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "files": [
     "src",
