@@ -1,5 +1,5 @@
 import * as Tone from 'tone'
-import { Range } from 'utils'
+import { Range } from '../utils'
 import { ToneInst } from '../types'
 import { Send, Sends } from './Send'
 
