@@ -20,8 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "mgnr-core": "workspace:@mgnr/core@^",
-    "tone": "^14.7.77",
-    "utils": "workspace:^"
+    "tone": "^14.7.77"
   },
   "peerDependencies": {
     "tone": "^14.7.77"
