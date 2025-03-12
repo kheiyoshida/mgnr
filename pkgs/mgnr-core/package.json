@@ -19,9 +19,6 @@
   ],
   "author": "Katsumi Yoshida",
   "license": "ISC",
-  "dependencies": {
-    "utils": "workspace:^"
-  },
   "devDependencies": {
     "typescript": "^4.8.4"
   }

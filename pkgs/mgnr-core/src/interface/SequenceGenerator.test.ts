@@ -1,13 +1,13 @@
-import * as utils from 'utils'
+import * as utils from '../utils'
 import { SequenceGenerator } from './SequenceGenerator'
 import * as mw from '../features/middleware'
 import { changeSequenceLength, constructNotes, updateConfig } from '../features/middleware'
 import { fillNoteConf, harmonizeNote } from '../features/NotePicker'
 import { Scale, Sequence, SequenceNoteMap } from '../entities'
 
-jest.mock('utils', () => ({
+jest.mock('../utils', () => ({
   __esModule: true,
-  ...jest.requireActual('utils'),
+  ...jest.requireActual('../utils'),
 }))
 
 const scale = new Scale({

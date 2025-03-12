@@ -52,10 +52,6 @@ importers:
         version: 5.3.3
 
   pkgs/mgnr-core:
-    dependencies:
-      utils:
-        specifier: workspace:^
-        version: link:../utils
     devDependencies:
       typescript:
         specifier: ^4.8.4

@@ -1,4 +1,4 @@
-import { overrideDefault } from 'utils'
+import { overrideDefault } from '../utils'
 import { convertDegreeToSemitone, Degree, MidiNum, Note, OCTAVE, Semitone } from '../entities'
 
 export type HarmonizerConf = {

@@ -1,4 +1,4 @@
-import { findNearestNumberInArray, randomItemFromArray, Range } from 'utils'
+import { findNearestNumberInArray, randomItemFromArray, Range } from '../../utils'
 import { MidiNum, PitchName, ROOT_TONE_MAP } from '../index'
 import { ScaleType } from './scaleTypes'
 import { Modulation } from './Modulation'

@@ -1,4 +1,4 @@
-import { randomItemFromArray } from 'utils'
+import { randomItemFromArray } from '../../utils'
 import { Degree, DEGREE_NUM_MAP, PITCH_NAMES, PitchName, Semitone } from './constants'
 
 export function nthDegreeTone(root: PitchName, degree: Degree): PitchName {

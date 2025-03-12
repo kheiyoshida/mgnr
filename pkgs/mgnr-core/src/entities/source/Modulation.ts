@@ -1,4 +1,4 @@
-import { removeItemFromArray } from 'utils'
+import { removeItemFromArray } from '../../utils'
 import { getSemitoneDiffBetweenPitches, Semitone } from '../index'
 import { ScaleConf } from './Scale'
 import { SCALES, SemitonesInScale } from './scaleTypes'
