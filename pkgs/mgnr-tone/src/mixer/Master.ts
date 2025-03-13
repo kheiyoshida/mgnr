@@ -1,5 +1,5 @@
 import * as Tone from 'tone'
-import { overrideDefault } from 'utils'
+import { overrideDefault } from '../utils'
 
 export interface MasterChannelConf {
   limitThreshold?: number

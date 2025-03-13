@@ -1,4 +1,4 @@
-import { removeItemFromArray } from 'utils/src/utils/mutate'
+import { removeItemFromArray } from '../utils'
 import { Channel, FadeValues, InstChannel, InstChConf, MuteValue, SendChannel, SendChConf } from './Channel'
 import { MasterChannel, MasterChannelConf } from './Master'
 import { Send } from './Send'

@@ -4,7 +4,7 @@ import {
   randomIntInclusiveBetween,
   randomRemoveFromArray,
   Range,
-} from 'utils'
+} from '../utils'
 import { Note } from './Note'
 
 export type SequenceConf = {

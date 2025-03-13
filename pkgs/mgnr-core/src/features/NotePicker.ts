@@ -1,4 +1,4 @@
-import { overrideDefault, pickRange, Range } from 'utils'
+import { overrideDefault, pickRange, Range } from '../utils'
 import { harmonize, HarmonizerConf } from './Harmonizer'
 import { Note, Scale } from '../entities'
 

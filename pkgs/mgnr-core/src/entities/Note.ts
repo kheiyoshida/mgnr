@@ -1,4 +1,4 @@
-import { Range } from 'utils'
+import { Range } from '../utils'
 import { MidiNum } from './pitch'
 import { Sequence, SequenceNoteMap } from './Sequence'
 

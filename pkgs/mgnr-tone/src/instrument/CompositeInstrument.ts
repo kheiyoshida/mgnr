@@ -2,7 +2,7 @@ import { convertNoteNameToMidi } from 'mgnr-core'
 import { InputNode, NoiseSynth } from 'tone'
 import { Frequency, Time } from 'tone/build/esm/core/type/Units'
 import { Instrument, InstrumentOptions } from 'tone/build/esm/instrument/Instrument'
-import { Range } from 'utils'
+import { Range } from '../utils'
 import { ToneInst } from '../types'
 
 export class CompositeInstrument implements ToneInst {

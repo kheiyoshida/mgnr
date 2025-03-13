@@ -1,10 +1,10 @@
 import { Sequence } from './Sequence'
 import { Note } from './Note'
-import * as utils from 'utils'
+import * as utils from '../utils'
 
-jest.mock('utils', () => ({
+jest.mock('../utils', () => ({
   __esModule: true,
-  ...jest.requireActual('utils')
+  ...jest.requireActual('../utils')
 }))
 
 const notes = {

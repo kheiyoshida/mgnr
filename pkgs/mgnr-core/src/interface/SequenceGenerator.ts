@@ -1,7 +1,7 @@
 import { fillNoteConf, NotePickerConf } from '../features/NotePicker'
 import { Scale, Sequence, SequenceConf } from '../entities'
 import * as mw from '../features/middleware'
-import type { Tail } from 'utils'
+import type { Tail } from '../utils'
 
 export type GeneratorConf = {
   scale?: Scale
