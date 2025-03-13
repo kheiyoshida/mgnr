@@ -2,13 +2,21 @@
   "name": "@mgnr/tone",
   "description": "music generator for WebAudio/Tone.js/node",
   "version": "0.0.5",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "files": [
     "src",
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsup",
+    "prepublishOnly": "pnpm build",
     "test": "cd ../.. && jest --selectProjects mgnr-tone",
     "test:coverage": "cd ../.. && jest --selectProjects mgnr-tone --coverage"
   },
@@ -26,6 +34,7 @@
     "tone": "^14.7.77"
   },
   "devDependencies": {
+    "tsup": "^8.4.0",
     "typescript": "^5.4.5"
   }
 }
