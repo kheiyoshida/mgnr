@@ -1,4 +1,4 @@
-import { Note, OutletPort } from 'mgnr-core'
+import { Note, OutletPort } from '@mgnr/core'
 import { pickRange } from '../utils'
 import { ToneOutlet } from './Outlet'
 import * as Transport from '../tone-wrapper/Transport'

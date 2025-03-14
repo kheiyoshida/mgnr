@@ -1,4 +1,4 @@
-import { convertNoteNameToMidi } from 'mgnr-core'
+import { convertNoteNameToMidi } from '@mgnr/core'
 import { InputNode, NoiseSynth } from 'tone'
 import { Frequency, Time } from 'tone/build/esm/core/type/Units'
 import { Instrument, InstrumentOptions } from 'tone/build/esm/instrument/Instrument'

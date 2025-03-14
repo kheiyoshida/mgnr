@@ -1,4 +1,4 @@
-import { createGenerator, SequenceGenerator } from 'mgnr-core'
+import { createGenerator, SequenceGenerator } from '@mgnr/core'
 import * as Transport from '../tone-wrapper/Transport'
 import { ToneOutlet } from '../outlet/Outlet'
 import { ToneOutletPort } from '../outlet/OutletPort'

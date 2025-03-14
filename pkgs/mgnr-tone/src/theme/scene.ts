@@ -1,4 +1,4 @@
-import { GeneratorConf, SequenceGenerator, SequenceNoteMap } from 'mgnr-core'
+import { GeneratorConf, SequenceGenerator, SequenceNoteMap } from '@mgnr/core'
 
 /**
  * A collection of generator specifications
