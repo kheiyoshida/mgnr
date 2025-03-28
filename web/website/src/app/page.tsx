@@ -13,6 +13,14 @@ export default function Home() {
       active: true,
     },
     {
+      fileName: "mix.ts",
+      code: getSampleCode("demo/mix.ts"),
+    },
+    {
+      fileName: "patterns.ts",
+      code: getSampleCode("demo/patterns.ts"),
+    },
+    {
       fileName: "instruments.ts",
       code: getSampleCode("demo/instruments.ts"),
     },
