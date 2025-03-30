@@ -14,10 +14,10 @@ export const setupChannels = () => {
   const padCh = mixer.createInstChannel({
     inst: pad(),
     initialVolume: -6,
-    effects: [new Tone.Distortion(0.1), new Tone.PingPongDelay('8n.', 0.2)],
+    effects: [new Tone.Distortion(0.1)],
   })
 
-  const synthCh = mixer.createInstChannel({
+  const bassCh = mixer.createInstChannel({
     inst: bass(),
     initialVolume: -10,
     effects: [new Tone.BitCrusher(16)],
@@ -28,7 +28,7 @@ export const setupChannels = () => {
   })
 
   mixer.connect(drumCh, sendCh, 0.3)
-  mixer.connect(synthCh, sendCh, 0.3)
+  mixer.connect(bassCh, sendCh, 0.3)
 
-  return { drumCh, padCh, synthCh }
+  return { drumCh, padCh, bassCh }
 }

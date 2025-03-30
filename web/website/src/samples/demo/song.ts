@@ -8,11 +8,15 @@ import { setupChannels } from './mix'
  *
  * by clicking the button in the sandbox browser on the right, it starts playing audio.
  *
- * modify the code and explore random sequences it generates :+)
+ * modify the code and explore random sequences it generates :-)
+ * (click on the sandbox browser's reload button whenever you want to apply new code)
  */
 export const main = () => {
   // mgnr provides a mixer and channels like one in DAW
   const channels = setupChannels()
+
+  // @mgnr/tone depends on Tone.js Transport.
+  Tone.Transport.bpm.value = 138
 
   // base config for the scales from which generators should pick random notes
   const scaleSource = mgnr.createScaleSource({
@@ -24,12 +28,9 @@ export const main = () => {
     scaleSource.modulateAll({ key: mgnr.pickRandomPitchName() }, 4)
   }, '8m')
 
-  // @mgnr/tone depends on Tone.js Transport.
-  Tone.Transport.bpm.value = 132
-
   prepareDrums(channels.drumCh)
   preparePad(channels.padCh, scaleSource)
-  prepareBass(channels.synthCh, scaleSource)
+  prepareBass(channels.bassCh, scaleSource)
 }
 
 const preparePad = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) => {
@@ -39,8 +40,8 @@ const preparePad = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) =>
   const generator = mgnr.SequenceGenerator.create({
     scale: scale,
     sequence: {
-      length: 16,
-      density: 0.8, // tries to fill 80% of 16 positions
+      length: 12,
+      density: 0.8, // tries to fill 80% of 12 positions
       division: 4, // the unit for the notes and their positions (4=quarter notes)
       polyphony: 'mono',
       fillStrategy: 'fill',
@@ -60,7 +61,7 @@ const preparePad = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) =>
   const generator2 = mgnr.SequenceGenerator.create({
     scale: scale,
     sequence: {
-      length: 4,
+      length: 6,
       density: 0.4,
       division: 16,
       polyphony: 'mono',
