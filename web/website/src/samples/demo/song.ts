@@ -16,7 +16,7 @@ export const main = () => {
   const channels = setupChannels()
 
   // @mgnr/tone depends on Tone.js Transport.
-  Tone.Transport.bpm.value = 138
+  Tone.Transport.bpm.value = 132
 
   // base config for the scales from which generators should pick random notes
   const scaleSource = mgnr.createScaleSource({
@@ -189,7 +189,7 @@ const prepareDrums = (channel: mgnr.InstChannel) => {
       }
     })
     .onEnded((g) => {
-      if (Math.random() > 0.9) {
+      if (Math.random() > 0.5) {
         g.resetNotes(beat)
       } else {
         g.eraseSequenceNotes()
