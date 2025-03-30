@@ -74,7 +74,7 @@ export const drumMachine = () => {
         sustain: 0.1,
         release: 0,
       },
-      volume: -22,
+      volume: -20,
       detune: -1000,
     }),
     new Tone.NoiseSynth({
@@ -87,7 +87,7 @@ export const drumMachine = () => {
         sustain: 0.01,
         release: 0.1,
       },
-      volume: -32,
+      volume: -30,
     })
   )
 
