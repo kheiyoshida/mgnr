@@ -10,7 +10,7 @@ export default function Home() {
         <div className="text-lg leading-12">generative music library for js</div>
       </div>
 
-      <Section title={"Playground"}/>
+      <Section title={'Playground'} />
       <DemoShowCase />
 
       <Section title={'Installation'} />
@@ -20,8 +20,12 @@ export default function Home() {
       <div>coming soon</div>
 
       <Section title={'Development'} />
-      <div>made by <a href={'https://www.kheiyoshida.com/'}>Katsumi "Khei" Yoshida</a></div>
-      <div>source code: <a href={'https://github.com/kheiyoshida/mgnr'}>https://github.com/kheiyoshida/mgnr</a></div>
+      <div>
+        made by <a href={'https://www.kheiyoshida.com'}>{`Katsumi "Khei" Yoshida`}</a>
+      </div>
+      <div>
+        source code: <a href={'https://github.com/kheiyoshida/mgnr'}>{`https://github.com/kheiyoshida/mgnr`}</a>
+      </div>
     </div>
   )
 }

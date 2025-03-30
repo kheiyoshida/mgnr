@@ -28,6 +28,6 @@
   "license": "ISC",
   "devDependencies": {
     "tsup": "^8.4.0",
-    "typescript": "^4.8.4"
+    "typescript": "^5.4.5"
   }
 }

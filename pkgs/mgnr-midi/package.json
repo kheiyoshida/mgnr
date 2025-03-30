@@ -23,6 +23,6 @@
     "utils": "workspace:^"
   },
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "typescript": "^5.4.5"
   }
 }
