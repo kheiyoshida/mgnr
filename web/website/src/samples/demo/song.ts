@@ -3,9 +3,18 @@ import * as Tone from 'tone'
 import { beat } from './patterns'
 import { setupChannels } from './mix'
 
+/**
+ * demo song for mgnr playground.
+ *
+ * by clicking the button in the sandbox browser on the right, it starts playing audio.
+ *
+ * modify the code and explore random sequences it generates :+)
+ */
 export const main = () => {
-  Tone.Transport.bpm.value = 132
+  // mgnr provides a mixer and channels like one in DAW
   const channels = setupChannels()
+
+  // base config for the scales from which generators should pick random notes
   const scaleSource = mgnr.createScaleSource({
     key: mgnr.pickRandomPitchName(),
     pref: 'omit25',
@@ -15,9 +24,122 @@ export const main = () => {
     scaleSource.modulateAll({ key: mgnr.pickRandomPitchName() }, 4)
   }, '8m')
 
+  // @mgnr/tone depends on Tone.js Transport.
+  Tone.Transport.bpm.value = 132
+
   prepareDrums(channels.drumCh)
   preparePad(channels.padCh, scaleSource)
-  prepareSynth(channels.synthCh, scaleSource)
+  prepareBass(channels.synthCh, scaleSource)
+}
+
+const preparePad = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) => {
+  const scale = scaleSource.createScale({ range: { min: 64, max: 102 } })
+
+  // SequenceGenerator generates random sequences based on these configurations
+  const generator = mgnr.SequenceGenerator.create({
+    scale: scale,
+    sequence: {
+      length: 16,
+      density: 0.8, // tries to fill 80% of 16 positions
+      division: 4, // the unit for the notes and their positions (4=quarter notes)
+      polyphony: 'mono',
+      fillStrategy: 'fill',
+    },
+    note: {
+      duration: { // the range in which note duration can be
+        min: 2,
+        max: 4,
+      },
+      harmonizer: { // random notes come with these harmonizing notes
+        degree: ['2', '5'],
+      },
+    },
+  })
+
+  // You can supply another generator as a second sequence layer, which make more complex poly rhythm
+  const generator2 = mgnr.SequenceGenerator.create({
+    scale: scale,
+    sequence: {
+      length: 4,
+      density: 0.4,
+      division: 16,
+      polyphony: 'mono',
+      fillStrategy: 'fill',
+    },
+    note: {
+      duration: {
+        min: 1,
+        max: 4,
+      },
+    },
+  })
+
+  // generate the initial random sequences
+  generator.constructNotes()
+  generator2.constructNotes()
+
+  // assign the generator to the channel (i.e. synth pad)
+  const outlet = mgnr.createOutlet(channel.inst)
+  outlet
+    .assignGenerator(generator)
+    .loopSequence(4)
+    .onElapsed((generator) => {
+      generator.mutate({ rate: 0.5, strategy: 'inPlace' }) // changes the note's pitch in place
+    })
+    .onEnded((generator) => {
+      generator.mutate({ rate: 0.5, strategy: 'randomize' }) // changes the note's position and pitch
+    })
+  outlet
+    .assignGenerator(generator2)
+    .loopSequence(4)
+    .onElapsed((generator) => {
+      generator.mutate({ rate: 0.5, strategy: 'inPlace' })
+    })
+    .onEnded((generator) => {
+      generator.mutate({ rate: 0.5, strategy: 'randomize' })
+    })
+}
+
+const prepareBass = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) => {
+  const scale = scaleSource.createScale({ pref: 'major', range: { min: 24, max: 52 } })
+
+  const generator1 = mgnr.SequenceGenerator.create({
+    scale: scale,
+    sequence: {
+      length: 4,
+      division: 1,
+      density: 1,
+    },
+    note: {
+      duration: 1,
+    },
+  })
+  const generator2 = mgnr.SequenceGenerator.create({
+    scale: scale,
+    sequence: {
+      length: 24,
+      division: 16,
+      density: 0.2,
+    },
+    note: {
+      duration: {
+        min: 1,
+        max: 2,
+      },
+    },
+  })
+  generator1.constructNotes()
+  generator2.constructNotes()
+
+  const outlet = mgnr.createOutlet(channel.inst, Tone.Transport.toSeconds('16n'))
+  outlet
+    .assignGenerator(generator1)
+    .loopSequence(2)
+    .onEnded((g) => g.resetNotes())
+  outlet
+    .assignGenerator(generator2)
+    .loopSequence(1)
+    .onEnded((g) => g.resetNotes())
 }
 
 const prepareDrums = (channel: mgnr.InstChannel) => {
@@ -86,108 +208,4 @@ const prepareDrums = (channel: mgnr.InstChannel) => {
         },
       })
     })
-}
-
-const preparePad = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) => {
-  const scale = scaleSource.createScale({ range: { min: 64, max: 102 } })
-
-  const generator = mgnr.SequenceGenerator.create({
-    scale: scale,
-    sequence: {
-      length: 16,
-      density: 0.8,
-      division: 4,
-      polyphony: 'mono',
-      fillStrategy: 'fill',
-    },
-    note: {
-      duration: {
-        min: 2,
-        max: 4,
-      },
-      harmonizer: {
-        degree: ['2', '5'],
-      },
-    },
-  })
-  const generator2 = mgnr.SequenceGenerator.create({
-    scale: scale,
-    sequence: {
-      length: 4,
-      density: 0.4,
-      division: 16,
-      polyphony: 'mono',
-      fillStrategy: 'fill',
-    },
-    note: {
-      duration: {
-        min: 1,
-        max: 4,
-      },
-    },
-  })
-  generator.constructNotes()
-  generator2.constructNotes()
-
-  const outlet = mgnr.createOutlet(channel.inst)
-  outlet
-    .assignGenerator(generator)
-    .loopSequence(4)
-    .onElapsed((generator) => {
-      generator.mutate({ rate: 0.5, strategy: 'inPlace' })
-    })
-    .onEnded((generator) => {
-      generator.mutate({ rate: 0.5, strategy: 'randomize' })
-    })
-  outlet
-    .assignGenerator(generator2)
-    .loopSequence(4)
-    .onElapsed((generator) => {
-      generator.mutate({ rate: 0.5, strategy: 'inPlace' })
-    })
-    .onEnded((generator) => {
-      generator.mutate({ rate: 0.5, strategy: 'randomize' })
-    })
-}
-
-const prepareSynth = (channel: mgnr.InstChannel, scaleSource: mgnr.ScaleSource) => {
-  const scale = scaleSource.createScale({ pref: 'major', range: { min: 24, max: 52 } })
-
-  const generator1 = mgnr.SequenceGenerator.create({
-    scale: scale,
-    sequence: {
-      length: 4,
-      division: 1,
-      density: 1,
-    },
-    note: {
-      duration: 1,
-    },
-  })
-  const generator2 = mgnr.SequenceGenerator.create({
-    scale: scale,
-    sequence: {
-      length: 24,
-      division: 16,
-      density: 0.2,
-    },
-    note: {
-      duration: {
-        min: 1,
-        max: 2,
-      },
-    },
-  })
-  generator1.constructNotes()
-  generator2.constructNotes()
-
-  const outlet = mgnr.createOutlet(channel.inst, Tone.Transport.toSeconds('16n'))
-  outlet
-    .assignGenerator(generator1)
-    .loopSequence(2)
-    .onEnded((g) => g.resetNotes())
-  outlet
-    .assignGenerator(generator2)
-    .loopSequence(1)
-    .onEnded((g) => g.resetNotes())
 }

@@ -17,7 +17,7 @@ export default function Showcase({ files }: { files: FileData[] }) {
         showTabs: true,
         showLineNumbers: true,
         editorHeight: 600, // default - 300
-        editorWidthPercentage: 50, // default - 50
+        editorWidthPercentage: 70, // default - 50
         showNavigator: true,
       }}
       customSetup={{
