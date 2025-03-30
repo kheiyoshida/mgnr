@@ -18,6 +18,7 @@ export default function Showcase({ files }: { files: FileData[] }) {
         showLineNumbers: true,
         editorHeight: 600, // default - 300
         editorWidthPercentage: 50, // default - 50
+        showNavigator: true,
       }}
       customSetup={{
         entry: '/index.ts',

@@ -1,5 +1,5 @@
 import * as mgnr from '@mgnr/tone'
-import { drumMachine, pad, synth } from './instruments'
+import { drumMachine, pad, bass } from './instruments'
 import * as Tone from 'tone'
 
 export const setupChannels = () => {
@@ -18,7 +18,7 @@ export const setupChannels = () => {
   })
 
   const synthCh = mixer.createInstChannel({
-    inst: synth(),
+    inst: bass(),
     initialVolume: -10,
     effects: [new Tone.BitCrusher(16)],
   })

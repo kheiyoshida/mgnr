@@ -23,16 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-stone-600">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className='bg-stone-600 text-white w-screen min-h-screen p-2'>
-          <div className='py-8'>
-            <h1 className='text-4xl'>mgnr</h1>
-            <div className='text-lg leading-10'>generative music library for js</div>
+        <div className='bg-stone-600 text-white w-screen min-h-screen'>
+          {/* menu and stuff might come here */}
+          <div id="content" className='m-auto max-w-6xl'>
+            {children}
           </div>
-          {children}
         </div>
       </body>
     </html>

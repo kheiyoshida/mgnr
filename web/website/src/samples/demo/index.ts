@@ -7,8 +7,10 @@ export const playSong = async () => {
   Tone.Transport.start()
 }
 
+document.body.style.background = "black";
+document.body.style.color = "white";
+
 const button = document.createElement("button");
-button.textContent = "Play";
+button.textContent = "Click to Play";
 button.addEventListener("click", playSong);
 document.body.appendChild(button);
-document.body.style.background = "black";

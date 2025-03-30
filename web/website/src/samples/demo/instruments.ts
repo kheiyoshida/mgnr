@@ -46,8 +46,8 @@ export const drumMachine = () => {
     envelope: {
       attack: 0,
       decay: 0.5,
-      sustain: 0.2,
-      release: 0.5,
+      sustain: 0.3,
+      release: 0.4,
     },
     volume: -20,
     detune: -200,
@@ -98,7 +98,7 @@ export const drumMachine = () => {
   ])
 }
 
-export const synth = () =>
+export const bass = () =>
   new mgnr.CompositeInstrument(
     new Tone.MonoSynth({
       oscillator: {
@@ -123,7 +123,7 @@ export const synth = () =>
       envelope: {
         attack: 0.01,
         decay: 0.2,
-        sustain: 0.2,
+        sustain: 0.18,
         release: 0.0,
       },
       volume: -10,
