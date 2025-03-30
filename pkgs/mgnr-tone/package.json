@@ -1,6 +1,7 @@
 {
   "name": "@mgnr/tone",
-  "description": "music generator for WebAudio/Tone.js/node",
+  "description": "generative music library for js",
+  "homepage": "https://mgnr-lib.vercel.app",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.cjs",
