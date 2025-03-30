@@ -23,7 +23,7 @@ export default function Showcase({ files }: { files: FileData[] }) {
       customSetup={{
         entry: '/index.ts',
         dependencies: {
-          "@mgnr/tone": "^0.0.8",
+          "@mgnr/tone": "^0.1.0",
           tone: '^14.7.77',
         },
       }}
