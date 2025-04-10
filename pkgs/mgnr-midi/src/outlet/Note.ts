@@ -1,7 +1,12 @@
-import { Note } from 'mgnr-core'
-import { ConcreteNote, MidiChannelNumber, MidiNote } from './types'
-import { Scale } from 'mgnr-core/src'
+import { Note, Scale } from 'mgnr-core'
 import { pickRange } from 'utils'
+
+/**
+ * duration must be in sixteenth unit
+ */
+export type ConcreteNote = {
+  [key in keyof Note]: number
+}
 
 export function convertToConcreteNote(scale: Scale, note: Note): ConcreteNote {
   const concretePitch = note.pitch === 'random' ? scale.pickRandomPitch() : note.pitch
@@ -10,13 +15,5 @@ export function convertToConcreteNote(scale: Scale, note: Note): ConcreteNote {
     pitch: concretePitch,
     dur: pickRange(note.dur),
     vel: pickRange(note.vel),
-  }
-}
-
-export function convertToMidiNote(chNumber: MidiChannelNumber, note: ConcreteNote): MidiNote {
-  return {
-    velocity: note.vel,
-    note: note.pitch,
-    channel: (chNumber - 1) as MidiNote['channel'],
   }
 }

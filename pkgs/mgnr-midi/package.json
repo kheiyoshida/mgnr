@@ -9,7 +9,9 @@
   "scripts": {
     "build": "rm -rf dist && tsc",
     "test": "cd ../.. && jest --selectProjects mgnr-midi",
-    "test:coverage": "cd ../.. && jest --selectProjects mgnr-midi --coverage"
+    "test:coverage": "cd ../.. && jest --selectProjects mgnr-midi --coverage",
+    "sample": "ts-node scripts/sample.ts",
+    "sample2": "ts-node scripts/sample2.ts"
   },
   "keywords": [
     "music",
@@ -23,6 +25,7 @@
     "utils": "workspace:^"
   },
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
 }

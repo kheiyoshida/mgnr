@@ -1,7 +1,7 @@
-import { Note } from 'mgnr-core'
-import { convertToConcreteNote, convertToMidiNote } from './convert'
-import { Scale } from 'mgnr-core/src'
+import { Note, Scale } from 'mgnr-core'
+import { convertToMidiNote } from './convert'
 import { NumRange } from 'utils'
+import { convertToConcreteNote } from '../outlet'
 
 describe(`${convertToConcreteNote.name}`, () => {
   it(`should convert random pitch into concrete pitch`, () => {
