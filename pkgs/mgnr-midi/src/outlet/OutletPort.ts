@@ -12,7 +12,9 @@ export class MidiChOutletPort extends OutletPort<MidiChOutlet> {
    */
   static scheduleOverhead = 1
 
-  public loopSequence(numOfLoops = 1) {
+  public loopSequence(numOfLoops = this.numOfLoops) {
+    this.numOfLoops = numOfLoops
+
     const divisionToUnit = Time.unit / this.generator.sequence.division
 
     for (let i = 0; i < numOfLoops; i++) {
@@ -40,7 +42,7 @@ export class MidiChOutletPort extends OutletPort<MidiChOutlet> {
   }
 
   private checkEvent(totalNumOfLoops: number, loopNth: number) {
-    if (loopNth === totalNumOfLoops) this.handleEnded(totalNumOfLoops, loopNth)
+    if (loopNth === totalNumOfLoops) this.handleEnded(loopNth)
     else this.handleElapsed(loopNth)
   }
 
@@ -49,7 +51,7 @@ export class MidiChOutletPort extends OutletPort<MidiChOutlet> {
     this.events.elapsed(this.generator, loopNth)
   }
 
-  private handleEnded(totalNumOfLoops: number, loopNth: number) {
+  private handleEnded(loopNth: number) {
     if (this.events.ended) {
       this.events.ended(this.generator, loopNth)
     }
