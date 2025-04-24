@@ -27,4 +27,34 @@ export class MidiPort {
   sendNoteOff(note: MidiNote) {
     this.output.send('noteoff', note)
   }
+
+  /**
+   * configure exit process to send note off signals to all notes/channels
+   * to prevent hung midi signals.
+   */
+  configureExitHandlers() {
+    process.on('exit', () => this.#allNotesOff())
+    process.on('SIGINT', () => {
+      this.#allNotesOff()
+      process.exit()
+    })
+    process.on('uncaughtException', (err) => {
+      // eslint-disable-next-line no-console
+      console.error(err)
+      this.#allNotesOff()
+      process.exit(1)
+    })
+  }
+
+  #allNotesOff() {
+    for (let channel = 0; channel < 16; channel++) {
+      for (let note = 0; note < 128; note++) {
+        this.output.send('noteoff', {
+          note,
+          velocity: 0,
+          channel: channel as easymidi.Channel,
+        })
+      }
+    }
+  }
 }

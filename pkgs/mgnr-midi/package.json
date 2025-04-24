@@ -10,8 +10,7 @@
     "build": "rm -rf dist && tsc",
     "test": "cd ../.. && jest --selectProjects mgnr-midi",
     "test:coverage": "cd ../.. && jest --selectProjects mgnr-midi --coverage",
-    "sample": "ts-node scripts/sample.ts",
-    "sample2": "ts-node scripts/sample2.ts"
+    "sample": "ts-node sample/$npm_config_filename.ts"
   },
   "keywords": [
     "music",

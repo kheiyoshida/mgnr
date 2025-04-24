@@ -1,7 +1,7 @@
 import * as mgnr from '../src'
+import { setupMidiPort } from './shared/setup'
 
-const midiPortName = process.argv[2] ?? 'Logic Pro Virtual In'
-const midiPort = new mgnr.MidiPort(midiPortName)
+const midiPort = setupMidiPort()
 
 const midiCh1 = new mgnr.MidiChannel(midiPort, 1)
 const midiCh2 = new mgnr.MidiChannel(midiPort, 2)
