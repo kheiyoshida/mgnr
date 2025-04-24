@@ -25,8 +25,5 @@ export class MidiChOutlet extends Outlet<MidiCh> {
   assignGenerator(generator: SequenceGenerator) {
     return new MidiChOutletPort(this, generator)
   }
-
-  get midiCh() {
-    return this.inst
-  }
 }
+
