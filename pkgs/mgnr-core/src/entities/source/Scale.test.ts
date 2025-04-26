@@ -1,7 +1,14 @@
 import { Scale } from './Scale'
 import { OCTAVE } from '../index'
+import * as mgnr from '../../commands'
 
 describe(`${Scale.name}`, () => {
+  test(`constructor overloads`, () => {
+    expect(() => new Scale('C')).not.toThrow()
+    expect(() => new Scale({})).not.toThrow()
+    expect(() => new Scale({ key: 'C', pref: 'major', range: { min: 30, max: 80 } })).not.toThrow()
+  })
+
   describe(`note construction`, () => {
     it(`should construct note pool from key and range`, () => {
       const scale = new Scale({

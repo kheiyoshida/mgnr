@@ -99,12 +99,15 @@ export class Scale {
 
   constructor(fixedPitches: MidiNum[])
   constructor(config?: Partial<ScaleConf>)
-  constructor(values: Partial<ScaleConf> | MidiNum[] = {}) {
+  constructor(key: PitchName, pref?: ScaleType, range?: Range)
+  constructor(values: Partial<ScaleConf> | MidiNum[] | PitchName = {}, pref?: ScaleType, range?: Range) {
     if (Array.isArray(values)) {
       this.setNewValues(values, values, Scale.DefaultValue)
       return
     }
-    const conf = this.buildConf(values)
+    const conf = typeof values == 'string'
+      ? this.buildConf({ key: values, pref, range })
+      : this.buildConf(values)
     const result = constructScalePitchesFromConf(conf)
     validateScalePitches(result, conf)
     this.setNewValues(result.wholePitches, result.primaryPitches, conf)

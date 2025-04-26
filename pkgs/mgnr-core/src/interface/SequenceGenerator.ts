@@ -20,8 +20,22 @@ export type Middleware = (ctx: GeneratorContext, ...params: never[]) => void
 export type MiddlewareArgs<M extends Middleware> = Tail<Parameters<M>>
 
 export class SequenceGenerator {
-  constructor(protected readonly context: GeneratorContext) {}
+  protected readonly context: GeneratorContext
 
+  constructor(contextOrConf: GeneratorContext | GeneratorConf) {
+    if ('picker' in contextOrConf) {
+      this.context = contextOrConf
+    } else {
+      const sequence = new Sequence(contextOrConf.sequence)
+      const picker = fillNoteConf(contextOrConf.note || {})
+      const scale = contextOrConf.scale || new Scale()
+      this.context = { sequence, scale, picker }
+    }
+  }
+
+  /**
+   * @deprecated simply use constructor overload
+   */
   static create<T extends SequenceGenerator>(
     this: new (context: GeneratorContext) => T,
     conf: GeneratorConf

@@ -3,13 +3,25 @@ import { fillNoteConf } from './features/NotePicker'
 import { MidiNum, Scale, ScaleConf, Sequence, SequenceNoteMap } from './entities'
 import { constructNotes } from './features/middleware'
 
+/**
+ * @deprecated use `Scale.constructor`
+ */
 export function createScale(pitches: MidiNum[]): Scale
+
+/**
+ * @deprecated use `Scale.constructor`
+ */
 export function createScale(
   key: ScaleConf['key'],
   pref?: ScaleConf['pref'],
   range?: ScaleConf['range']
 ): Scale
+
+/**
+ * @deprecated use `Scale.constructor`
+ */
 export function createScale(conf: Partial<ScaleConf>): Scale
+
 export function createScale(
   confOrKeyOrPitches?: Partial<ScaleConf> | ScaleConf['key'] | MidiNum[],
   pref?: ScaleConf['pref'],
@@ -21,7 +33,7 @@ export function createScale(
 }
 
 /**
- * @deprecated use `SequenceGenerator.create()` factory method
+ * @deprecated use `SequenceGenerator.constructor`
  */
 export function createGenerator(
   conf: GeneratorConf & { notes?: SequenceNoteMap }
