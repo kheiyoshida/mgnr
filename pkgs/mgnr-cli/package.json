@@ -21,7 +21,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "mgnr-core": "workspace:@mgnr/core@^",
     "mgnr-midi": "workspace:@mgnr/midi@^",
     "table-layout": "^4.1.1"
   },

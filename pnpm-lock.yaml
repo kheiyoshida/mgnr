@@ -59,9 +59,6 @@ importers:
       express:
         specifier: ^5.1.0
         version: 5.1.0
-      mgnr-core:
-        specifier: workspace:@mgnr/core@^
-        version: link:../mgnr-core
       mgnr-midi:
         specifier: workspace:@mgnr/midi@^
         version: link:../mgnr-midi
@@ -97,7 +94,7 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
       mgnr-core:
-        specifier: workspace:@mgnr/core@^
+        specifier: workspace:@mgnr/core@^0.1
         version: link:../mgnr-core
       utils:
         specifier: workspace:^
@@ -116,7 +113,7 @@ importers:
   pkgs/mgnr-tone:
     dependencies:
       '@mgnr/core':
-        specifier: workspace:^
+        specifier: workspace:^0.1
         version: link:../mgnr-core
       tone:
         specifier: ^14.7.77

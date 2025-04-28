@@ -30,7 +30,7 @@
   "license": "ISC",
   "dependencies": {
     "easymidi": "^3.1.0",
-    "mgnr-core": "workspace:@mgnr/core@^",
+    "mgnr-core": "workspace:@mgnr/core@^0.1",
     "utils": "workspace:^"
   },
   "devDependencies": {

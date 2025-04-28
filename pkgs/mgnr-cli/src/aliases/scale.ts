@@ -1,4 +1,4 @@
-import { Scale, ScaleConf } from 'mgnr-core'
+import { Scale, ScaleConf } from 'mgnr-midi'
 import { Loggable } from '../stream/types'
 
 export class CliScale extends Scale implements Loggable {

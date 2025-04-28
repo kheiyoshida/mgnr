@@ -1,4 +1,4 @@
-import { SequenceConf, SequenceGenerator } from 'mgnr-core'
+import { SequenceConf, SequenceGenerator } from 'mgnr-midi'
 import { Loggable } from '../stream/types'
 
 export class CliSequenceGenerator extends SequenceGenerator implements Loggable {
