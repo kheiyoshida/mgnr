@@ -30,10 +30,10 @@
   "license": "ISC",
   "dependencies": {
     "easymidi": "^3.1.0",
-    "mgnr-core": "workspace:@mgnr/core@^0.1",
-    "utils": "workspace:^"
+    "mgnr-core": "workspace:@mgnr/core@^0.1"
   },
   "devDependencies": {
+    "utils": "workspace:^",
     "tsup": "^8.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
