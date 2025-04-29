@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "ESNext",
-    ],
+    "lib": ["ESNext"],
     "module": "CommonJS",
     "rootDir": "./src",
     "moduleResolution": "node",
     "baseUrl": "./",
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "typeRoots": ["./types", "./node_modules/@types", "../../node_modules/@types"],
     "resolveJsonModule": true,
     "allowJs": true,
     "declaration": true,
@@ -20,7 +17,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": ["src", "types"]
+  "include": [
+    "src",
+    "types"
+  ]
 }

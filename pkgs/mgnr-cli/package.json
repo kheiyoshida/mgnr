@@ -7,7 +7,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsup",
+    "prepublishOnly": "pnpm build",
     "test": "cd ../.. && jest --selectProjects mgnr-cli",
     "test:coverage": "cd ../.. && jest --selectProjects mgnr-cli --coverage",
     "sample": "ts-node src/session.ts"
@@ -21,13 +22,14 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "mgnr-midi": "workspace:@mgnr/midi@^",
+    "mgnr-midi": "workspace:@mgnr/midi@^0.0",
     "table-layout": "^4.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "tsup": "^8.4.0"
   }
 }
