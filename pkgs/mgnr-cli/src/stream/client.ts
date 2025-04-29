@@ -24,7 +24,7 @@ async function isStreamAvailable() {
     await fetch('http://localhost:8080/ping')
     return true
   } catch (e) {
-    console.warn(`stream server is not available. make sure to start server before starting repl session`)
+    console.log(`Stream server is not available. You can start stream server by "npx mgnr-cli-stream" in another window for monitoring`)
     return false
   }
 }

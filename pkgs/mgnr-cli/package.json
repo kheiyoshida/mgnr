@@ -14,6 +14,9 @@
     "dist",
     "bin"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "bin": {
     "mgnr-cli-stream": "./bin/start-stream.js"
   },
@@ -22,7 +25,7 @@
     "prepublishOnly": "pnpm build",
     "test": "cd ../.. && jest --selectProjects mgnr-cli",
     "test:coverage": "cd ../.. && jest --selectProjects mgnr-cli --coverage",
-    "sample": "ts-node src/session.ts"
+    "sample": "ts-node src/sample.ts"
   },
   "keywords": [
     "music",

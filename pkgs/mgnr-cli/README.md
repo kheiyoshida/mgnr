@@ -5,7 +5,7 @@
 
 ### In Terminal Window 1
 ```shell
-pnpm stream
+npx mgnr-cli-stream
 ```
 ### In Terminal Window 2
 
@@ -24,5 +24,5 @@ mgnr.Scheduler.get().start()
 ```
 
 ```shell
-ts-node session.ts
+ts-node sample.ts
 ```
