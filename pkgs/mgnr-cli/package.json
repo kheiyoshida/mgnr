@@ -1,11 +1,22 @@
 {
   "name": "@mgnr/cli",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "files": [
     "src",
-    "dist"
+    "dist",
+    "bin"
   ],
+  "bin": {
+    "mgnr-cli-stream": "./bin/start-stream.js"
+  },
   "scripts": {
     "build": "rm -rf dist && tsup",
     "prepublishOnly": "pnpm build",

@@ -3,22 +3,19 @@ import cors from 'cors'
 import express from 'express'
 import { printLog } from './print'
 
-const port = 8080
-const server = express()
-server.use(cors({ origin: '*' }))
-
-server.use(express.json())
-
-server.get('/ping', (req, res) => {
-  res.status(200).json('okay')
-})
-
-server.post('/log', (req, res) => {
-  printLog(req.body)
-  res.json()
-})
-
 export function startStream() {
+  const port = 8080
+  const server = express()
+  server.use(cors({ origin: '*' }))
+  server.use(express.json())
+  server.get('/ping', (req, res) => {
+    res.status(200).json('okay')
+  })
+  server.post('/log', (req, res) => {
+    printLog(req.body)
+    res.json()
+  })
+
   try {
     server.listen(port, () => {
       console.clear()
