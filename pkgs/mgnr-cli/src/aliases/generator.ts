@@ -40,20 +40,20 @@ export class CliSequenceGenerator extends SequenceGenerator implements Loggable 
 
   get logState() {
     return {
-      _: '',
-      l: this.sequence.length,
-      n: this.sequence.numOfNotes,
-      den: this.sequence.density,
-      dur: convertRange(this.picker.duration),
-      vel: convertRange(this.picker.velocity),
-      f: this.sequence.conf.fillStrategy,
-      p: this.sequence.poly ? 'poly' : 'mono',
-      h: this.picker.harmonizer ? this.picker.harmonizer['degree'] : '',
+      _: this.logName,
+      length: this.sequence.length,
+      notes: this.sequence.numOfNotes,
+      density: this.sequence.density,
+      duration: convertRange(this.picker.duration),
+      velocity: convertRange(this.picker.velocity),
     }
   }
+
+  logName: string = 'generator'
 }
 
-type Range = { min: number, max: number }
+type Range = { min: number; max: number }
+
 function convertRange(r: Range | number) {
   if (typeof r === 'number') return r
   else return `${r.min}-${r.max}`

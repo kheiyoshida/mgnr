@@ -3,6 +3,7 @@ import cors from 'cors'
 import express from 'express'
 import { printLog } from './print'
 
+// TODO: come up with a lighter solution than building a local server
 export function startStream() {
   const port = 8080
   const server = express()

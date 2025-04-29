@@ -29,14 +29,14 @@ export class CliScale extends Scale implements Loggable {
     }
   }
 
-  logName: string = ''
+  logName: string = 'scale'
 
   get logState() {
     return {
       _: this.logName,
-      k: this.key,
-      p: this._conf.pref,
-      r: `${this.pitchRange.min}-${this.pitchRange.max}`,
+      key: this.key,
+      preference: this._conf.pref,
+      range: `${this.pitchRange.min}-${this.pitchRange.max}`,
     }
   }
 }

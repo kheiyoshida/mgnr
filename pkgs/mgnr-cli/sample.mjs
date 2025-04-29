@@ -1,4 +1,4 @@
-import * as mgnr from './index'
+import * as mgnr from './dist/index.js'
 
 const setup = () => {
   const scale = new mgnr.CliScale()

@@ -24,5 +24,5 @@ mgnr.Scheduler.get().start()
 ```
 
 ```shell
-ts-node sample.ts
+ts-node sample.mjs
 ```
