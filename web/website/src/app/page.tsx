@@ -1,15 +1,10 @@
 import { DemoShowCase } from '@/app/demo'
 import React from 'react'
-import { Section } from '@/components'
+import { PageBody, Section } from '@/components'
 
 export default function Home() {
   return (
-    <div className="py-8 px-2">
-      <div className="my-12">
-        <h1 className="text-4xl">mgnr</h1>
-        <div className="text-lg leading-12">generative music library for js</div>
-      </div>
-
+    <PageBody>
       <Section title={'Playground'} />
       <DemoShowCase />
 
@@ -26,6 +21,6 @@ export default function Home() {
       <div>
         source code: <a href={'https://github.com/kheiyoshida/mgnr'}>{`https://github.com/kheiyoshida/mgnr`}</a>
       </div>
-    </div>
+    </PageBody>
   )
 }
