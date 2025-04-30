@@ -2,6 +2,7 @@
   "name": "utils",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "test": "cd ../.. && jest --selectProjects utils",

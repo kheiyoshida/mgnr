@@ -1,4 +1,4 @@
-import * as mgnr from './dist/index.js'
+import * as mgnr from './index'
 
 const setup = () => {
   const scale = new mgnr.CliScale()
@@ -24,6 +24,7 @@ const setup = () => {
 
   mgnr.setupLogStream([generator, generator2], [scale])
   mgnr.Scheduler.get().start()
+  mgnr.Scheduler.multiEventsBufferInterval = 2
 
   return {
     p1: port1,

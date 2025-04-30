@@ -20,7 +20,7 @@
     "prepublishOnly": "pnpm build",
     "test": "cd ../.. && jest --selectProjects mgnr-midi",
     "test:coverage": "cd ../.. && jest --selectProjects mgnr-midi --coverage",
-    "sample": "ts-node sample/$npm_config_filename.ts"
+    "sample": "tsx sample/$npm_config_filename.ts"
   },
   "keywords": [
     "music",
@@ -33,9 +33,9 @@
     "mgnr-core": "workspace:@mgnr/core@^0.1"
   },
   "devDependencies": {
-    "utils": "workspace:^",
     "tsup": "^8.4.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "tsx": "^4.19.4",
+    "typescript": "^5.4.5",
+    "utils": "workspace:^"
   }
 }
